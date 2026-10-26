@@ -3,377 +3,688 @@
 <html lang="en">
 <head>
 <meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="viewport" content="width=device-width, initial-scale=1">
 <meta name="theme-color" content="#080808">
-<meta name="description" content="FF Max Booster gaming settings, sensitivity guide and FPS optimization for Android.">
-<title>FF MAX BOOSTER</title>
+<title>FF MAX BOOSTER | RED NEON</title>
 
 <style>
 :root {
-  --bg: #080808;
-  --card: #151515;
-  --red: #ff3030;
-  --text: #ffffff;
-  --muted: #aaaaaa;
+  --bg:#070707;
+  --card:#121212;
+  --red:#ff101f;
+  --red-dark:#78000b;
+  --text:#fff;
+  --muted:#aaa;
+  --line:#401017;
 }
-* { box-sizing: border-box; }
+* { box-sizing:border-box; }
 body {
-  margin: 0;
-  background: var(--bg);
-  color: var(--text);
-  font-family: Arial, sans-serif;
+  margin:0;
+  background:var(--bg);
+  color:var(--text);
+  font-family:Arial,sans-serif;
 }
+button,input,select { font:inherit; }
+button { cursor:pointer; }
 header {
-  padding: 22px 15px;
-  text-align: center;
-  background: #101010;
-  border-bottom: 2px solid var(--red);
+  text-align:center;
+  padding:24px 12px;
+  background:linear-gradient(140deg,#270006,#080808 75%);
+  border-bottom:2px solid var(--red);
 }
-header h1 {
-  margin: 0;
-  color: var(--red);
-  font-size: 28px;
-  text-shadow: 0 0 12px #ff303055;
+.logo {
+  color:var(--red);
+  font-size:27px;
+  font-weight:900;
+  text-shadow:0 0 14px #ff101f88;
 }
-header p { color: var(--muted); margin-bottom: 0; }
-nav {
-  display: flex;
-  justify-content: center;
-  flex-wrap: wrap;
-  gap: 8px;
-  padding: 12px;
-  background: #111;
-  position: sticky;
-  top: 0;
-  z-index: 5;
+header p {
+  color:var(--muted);
+  font-size:12px;
+  letter-spacing:2px;
 }
-button, .navlink {
-  border: 1px solid var(--red);
-  background: #1c1c1c;
-  color: white;
-  border-radius: 9px;
-  padding: 11px 14px;
-  cursor: pointer;
-  font-weight: bold;
-  text-decoration: none;
+.status {
+  display:inline-block;
+  padding:7px 12px;
+  border:1px solid #64121c;
+  border-radius:20px;
+  color:#ff626b;
+  font-size:11px;
+  background:#1b080a;
 }
-button:hover, .navlink:hover {
-  background: var(--red);
-}
-main {
-  width: min(900px, 94%);
-  margin: 20px auto 80px;
+.container {
+  max-width:650px;
+  margin:auto;
+  padding:15px 13px 100px;
 }
 .card {
-  background: var(--card);
-  border: 1px solid #292929;
-  border-radius: 15px;
-  padding: 18px;
-  margin: 16px 0;
-  box-shadow: 0 5px 20px #0008;
+  margin:14px 0;
+  padding:17px;
+  background:linear-gradient(145deg,#171717,#0e0e0e);
+  border:1px solid var(--line);
+  border-radius:15px;
+  box-shadow:0 5px 22px #0008;
 }
-h2 { color: var(--red); margin-top: 0; }
-h3 { margin-bottom: 8px; }
-p, li { line-height: 1.6; }
-label {
-  display: block;
-  margin: 17px 0 8px;
+h2 {
+  font-size:17px;
+  margin:0 0 14px;
 }
-select, input[type="range"] {
-  width: 100%;
-  accent-color: var(--red);
+h2 span { color:var(--red); }
+.sub {
+  color:var(--muted);
+  font-size:12px;
+  line-height:1.6;
+}
+.profile {
+  display:flex;
+  align-items:center;
+  justify-content:space-between;
+  gap:10px;
+}
+.profile strong { font-size:17px; }
+.tag {
+  color:#ff5963;
+  border:1px solid #64121c;
+  background:#26090d;
+  border-radius:7px;
+  padding:7px;
+  font-size:11px;
+}
+.setting {
+  display:flex;
+  align-items:center;
+  justify-content:space-between;
+  gap:12px;
+  padding:14px 0;
+  border-bottom:1px solid #292020;
+}
+.setting:last-child { border-bottom:0; }
+.setting b { font-size:14px; }
+.setting small {
+  display:block;
+  color:var(--muted);
+  font-size:11px;
+  line-height:1.5;
+  margin-top:5px;
+}
+.switch {
+  position:relative;
+  flex-shrink:0;
+  width:48px;
+  height:27px;
+}
+.switch input {
+  width:0;
+  height:0;
+  opacity:0;
+}
+.track {
+  position:absolute;
+  inset:0;
+  border-radius:25px;
+  background:#393939;
+  transition:.2s;
+}
+.track:before {
+  content:"";
+  position:absolute;
+  left:4px;
+  top:4px;
+  width:19px;
+  height:19px;
+  background:white;
+  border-radius:50%;
+  transition:.2s;
+}
+.switch input:checked + .track {
+  background:var(--red);
+  box-shadow:0 0 12px #ff101f55;
+}
+.switch input:checked + .track:before {
+  transform:translateX(21px);
+}
+.field { margin:17px 0; }
+.field label {
+  display:flex;
+  justify-content:space-between;
+  gap:8px;
+  font-size:13px;
+  margin-bottom:9px;
+}
+output { color:var(--red); font-weight:bold; }
+input[type=range] {
+  width:100%;
+  accent-color:var(--red);
 }
 select {
-  padding: 12px;
-  background: #080808;
-  color: white;
-  border: 1px solid #444;
-  border-radius: 8px;
+  width:100%;
+  padding:12px;
+  color:white;
+  background:#080808;
+  border:1px solid #512027;
+  border-radius:9px;
 }
-.value {
-  color: var(--red);
-  font-weight: bold;
+.btn {
+  border:1px solid var(--red);
+  border-radius:9px;
+  padding:12px;
+  background:#21090c;
+  color:white;
+  font-weight:bold;
 }
-.grid {
-  display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(140px, 1fr));
-  gap: 12px;
+.btn.primary {
+  background:var(--red);
+  color:white;
 }
-.stat {
-  background: #202020;
-  padding: 15px;
-  border-radius: 10px;
-  text-align: center;
+.actions {
+  display:flex;
+  gap:9px;
+  margin-top:14px;
 }
-.stat strong {
-  display: block;
-  color: var(--red);
-  font-size: 20px;
-  margin-bottom: 5px;
+.actions button { flex:1; }
+#message {
+  color:#ff6871;
+  font-size:12px;
+  line-height:1.6;
+  margin-top:12px;
+  overflow-wrap:anywhere;
 }
-.primary {
-  background: var(--red);
-  color: white;
-  border: none;
-  width: 100%;
-  margin-top: 15px;
-}
-.note {
-  color: var(--muted);
-  font-size: 13px;
-}
-#toast {
-  display: none;
-  padding: 12px;
-  margin-top: 12px;
-  background: #202020;
-  border-left: 3px solid var(--red);
-  border-radius: 5px;
+.notice {
+  padding:12px;
+  border:1px solid #50141b;
+  border-radius:9px;
+  background:#1b0b0d;
+  color:#e8b7bb;
+  font-size:12px;
+  line-height:1.7;
 }
 footer {
-  text-align: center;
-  padding: 22px;
-  color: var(--muted);
-  border-top: 1px solid #333;
+  padding:20px 12px;
+  text-align:center;
+  color:#777;
+  font-size:11px;
+  line-height:1.7;
 }
-#floatButton {
-  position: fixed;
-  right: 16px;
-  bottom: 22px;
-  width: 58px;
-  height: 58px;
-  border-radius: 50%;
-  background: var(--red);
-  border: 2px solid white;
-  font-size: 23px;
-  box-shadow: 0 0 20px #ff303088;
-  z-index: 20;
+#floatBtn {
+  position:fixed;
+  z-index:1001;
+  right:17px;
+  bottom:22px;
+  width:60px;
+  height:60px;
+  border:2px solid #ff9ba1;
+  border-radius:50%;
+  background:linear-gradient(145deg,#ff2635,#97000c);
+  color:white;
+  font-size:25px;
+  box-shadow:0 0 22px #ff101f66;
 }
-#quickPanel {
-  display: none;
-  position: fixed;
-  right: 16px;
-  bottom: 92px;
-  width: min(290px, calc(100% - 32px));
-  background: #171717;
-  border: 1px solid var(--red);
-  border-radius: 14px;
-  padding: 16px;
-  z-index: 19;
-  box-shadow: 0 5px 25px #000c;
+#panel {
+  display:none;
+  position:fixed;
+  z-index:1000;
+  right:12px;
+  bottom:94px;
+  width:min(400px,calc(100% - 24px));
+  max-height:75vh;
+  overflow-y:auto;
+  overscroll-behavior:contain;
+  background:#0a0a0a;
+  border:1px solid var(--red);
+  border-radius:15px;
+  padding:15px;
+  box-shadow:0 0 30px #000d,0 0 18px #ff101f22;
 }
-#quickPanel button { width: 100%; margin-top: 8px; }
-.hidden { display: none; }
+#panel.open { display:block; }
+.panelhead {
+  display:flex;
+  justify-content:space-between;
+  align-items:center;
+  border-bottom:1px solid #401017;
+  padding-bottom:12px;
+}
+.panelhead strong { color:var(--red); }
+.quick {
+  display:grid;
+  grid-template-columns:1fr 1fr;
+  gap:9px;
+  margin-top:13px;
+}
+.quick button {
+  padding:13px 7px;
+  background:#171717;
+  border:1px solid #45131a;
+  color:white;
+  border-radius:9px;
+  font-size:12px;
+}
+.quick button span {
+  display:block;
+  font-size:21px;
+  margin-bottom:6px;
+}
+@media(min-width:600px) {
+  .container { padding-top:24px; }
+}
 </style>
 </head>
-
 <body>
+
 <header>
-  <h1>🔥 FF MAX BOOSTER</h1>
-  <p>Gaming Settings • Smooth Play • Headshot Guide</p>
+  <div class="logo">🔴 FF MAX BOOSTER</div>
+  <p>RED NEON GAMING CONTROL</p>
+  <span class="status">● CONTROL PANEL READY</span>
 </header>
 
-<nav>
-  <a class="navlink" href="#device">Device</a>
-  <a class="navlink" href="#fps">FPS</a>
-  <a class="navlink" href="#sensitivity">Sensitivity</a>
-  <a class="navlink" href="#tips">Tips</a>
-</nav>
+<main class="container">
 
-<main>
-  <section class="card" id="device">
-    <h2>📱 Your Gaming Profile</h2>
-    <div class="grid">
-      <div class="stat">
-        <strong>Samsung</strong>
-        Device
+  <section class="card">
+    <div class="profile">
+      <div>
+        <div class="sub">YOUR DEVICE</div>
+        <strong>Samsung F17 5G</strong>
       </div>
-      <div class="stat">
-        <strong>F17 5G</strong>
-        Model
-      </div>
-      <div class="stat">
-        <strong>Android</strong>
-        Platform
-      </div>
+      <span class="tag">ANDROID</span>
     </div>
-    <p class="note">
-      Recommended settings are starting points. Actual performance
-      depends on your phone variant, game version and temperature.
+    <p class="sub">
+      Configure your gaming preferences and practice settings.
     </p>
   </section>
 
-  <section class="card" id="fps">
-    <h2>⚡ FPS & Graphics Guide</h2>
+  <section class="card" id="boost">
+    <h2><span>⚡</span> BOOST OPTIONS</h2>
 
-    <label for="graphics">Graphics</label>
-    <select id="graphics">
-      <option value="Smooth">Smooth — prioritize performance</option>
-      <option value="Standard">Standard</option>
-      <option value="High">High — if stable</option>
-    </select>
+    <div class="setting">
+      <div>
+        <b>Gaming Mode</b>
+        <small>Save your gaming profile preference</small>
+      </div>
+      <label class="switch">
+        <input type="checkbox" data-setting="gamingMode">
+        <span class="track"></span>
+      </label>
+    </div>
 
-    <label for="fpsMode">Frame Rate</label>
-    <select id="fpsMode">
-      <option value="High">High — if available</option>
-      <option value="Normal">Normal</option>
-      <option value="Ultra">Ultra — only if available and stable</option>
-    </select>
+    <div class="setting">
+      <div>
+        <b>Performance Tips</b>
+        <small>Enable smooth-gameplay tips</small>
+      </div>
+      <label class="switch">
+        <input type="checkbox" data-setting="performanceTips">
+        <span class="track"></span>
+      </label>
+    </div>
 
-    <label for="shadows">Extra visual effects</label>
-    <select id="shadows">
-      <option value="Off">Reduce extra effects</option>
-      <option value="On">Keep game effects</option>
-    </select>
+    <div class="setting">
+      <div>
+        <b style="color:#ff2635">🔴 AIM PRACTICE</b>
+        <small>Enable the aim-training guide</small>
+      </div>
+      <label class="switch">
+        <input type="checkbox" data-setting="aimPractice">
+        <span class="track"></span>
+      </label>
+    </div>
 
-    <button class="primary" onclick="saveGraphics()">
-      Save My Preferences
-    </button>
-    <p class="note">
-      This saves your choices on this webpage only. It does not
-      change Free Fire's internal settings automatically.
+    <div class="setting">
+      <div>
+        <b>Headshot Practice Guide</b>
+        <small>Show sensitivity and drag tips</small>
+      </div>
+      <label class="switch">
+        <input type="checkbox" data-setting="headshotGuide">
+        <span class="track"></span>
+      </label>
+    </div>
+
+    <div class="setting">
+      <div>
+        <b>Floating Panel</b>
+        <small>Show or hide the floating icon</small>
+      </div>
+      <label class="switch">
+        <input type="checkbox" data-setting="floatingEnabled">
+        <span class="track"></span>
+      </label>
+    </div>
+  </section>
+
+  <section class="card" id="graphics">
+    <h2><span>⚡</span> FPS & GRAPHICS</h2>
+
+    <div class="field">
+      <label for="graphicsMode">Graphics Quality</label>
+      <select id="graphicsMode" data-setting="graphicsMode">
+        <option value="Smooth">Smooth</option>
+        <option value="Standard">Standard</option>
+        <option value="High">High (if stable)</option>
+      </select>
+    </div>
+
+    <div class="field">
+      <label for="fpsMode">Frame Rate Preference</label>
+      <select id="fpsMode" data-setting="fpsMode">
+        <option value="Normal">Normal</option>
+        <option value="High">High (if available)</option>
+        <option value="Ultra">Ultra (if available)</option>
+      </select>
+    </div>
+
+    <div class="field">
+      <label for="effects">Visual Effects</label>
+      <select id="effects" data-setting="effects">
+        <option value="Reduced">Reduce unnecessary effects</option>
+        <option value="Default">Default effects</option>
+      </select>
+    </div>
+
+    <p class="sub">
+      These are saved preferences. Apply available settings manually
+      in Free Fire MAX.
     </p>
-    <div id="graphicsResult"></div>
   </section>
 
   <section class="card" id="sensitivity">
-    <h2>🎯 Headshot Sensitivity</h2>
-    <p>Adjust the guide values from 0–200 to suit your own aim.</p>
-
+    <h2><span>🎯</span> SENSITIVITY SETTINGS</h2>
+    <p class="sub">Adjust the guide values from 0 to 200.</p>
     <div id="sliders"></div>
 
-    <button class="primary" onclick="copySettings()">
-      Copy Sensitivity Settings
-    </button>
-    <div id="toast"></div>
+    <div class="actions">
+      <button class="btn" id="resetSens">Reset Values</button>
+      <button class="btn primary" id="copySens">Copy Values</button>
+    </div>
   </section>
 
-  <section class="card" id="tips">
-    <h2>🔥 One-Tap & Drag Tips</h2>
-    <ul>
-      <li>Start with the General and Red Dot sensitivity values below.</li>
-      <li>Practice short upward drags in the training ground.</li>
-      <li>Adjust fire button size in the game's own HUD settings.</li>
-      <li>Use the lowest graphics option that keeps gameplay smooth.</li>
-      <li>Close unnecessary background apps before playing.</li>
-      <li>Take a break if the phone gets unusually hot.</li>
-    </ul>
-    <p class="note">
-      No setting guarantees a headshot. This guide does not automate
-      aiming, lock onto opponents or modify the game.
-    </p>
+  <section class="card" id="manage">
+    <h2><span>💾</span> SAVE SETTINGS</h2>
+    <p class="sub">Your preferences are stored in this browser.</p>
+    <div class="actions">
+      <button class="btn primary" id="saveBtn">Save All</button>
+      <button class="btn" id="resetAll">Reset All</button>
+    </div>
+    <div id="message" role="status" aria-live="polite"></div>
   </section>
 
   <section class="card">
-    <h2>🔘 Floating Settings Demo</h2>
-    <p>
-      Tap the red controller icon at the bottom-right of this webpage
-      to open the quick settings panel.
-    </p>
-    <p class="note">
-      This is a webpage overlay, not a system-wide Android overlay.
-      It will not float over Free Fire after you leave the browser.
-    </p>
+    <h2><span>ⓘ</span> ABOUT</h2>
+    <div class="notice">
+      This website provides a gaming-settings dashboard and aim
+      practice guide. It does not automate aim, lock onto enemies,
+      modify game files, or guarantee headshots. Website settings
+      cannot directly change Free Fire MAX or unlock FPS.
+    </div>
   </section>
 </main>
 
-<div id="quickPanel">
-  <h3 style="color:#ff3030">🎮 Quick Panel</h3>
-  <button onclick="goTo('fps')">⚡ FPS & Graphics</button>
-  <button onclick="goTo('sensitivity')">🎯 Sensitivity</button>
-  <button onclick="goTo('tips')">🔥 Headshot Tips</button>
-  <button onclick="togglePanel()">Close Panel</button>
-</div>
-
-<button id="floatButton" aria-label="Open gaming settings"
- onclick="togglePanel()">🎮</button>
-
 <footer>
-  FF MAX BOOSTER • Community gaming settings guide
-  <p class="note">
-    Unofficial fan-made website. Not affiliated with Garena.
-  </p>
+  FF MAX BOOSTER · UNOFFICIAL FAN PROJECT<br>
+  Not affiliated with Garena.
 </footer>
 
+<div id="panel" role="dialog" aria-label="Quick settings">
+  <div class="panelhead">
+    <strong>🔴 QUICK CONTROL</strong>
+    <button class="btn" id="closePanel" aria-label="Close">✕</button>
+  </div>
+  <div class="quick">
+    <button data-jump="boost"><span>◉</span>Boost Options</button>
+    <button data-jump="graphics"><span>⚡</span>FPS & Graphics</button>
+    <button data-jump="sensitivity"><span>🎯</span>Sensitivity</button>
+    <button id="quickSave"><span>💾</span>Save Settings</button>
+  </div>
+  <p class="sub">Tap any option to open its section.</p>
+</div>
+
+<button id="floatBtn" aria-label="Open gaming control panel"
+        aria-expanded="false">🎮</button>
+
 <script>
-const defaults = {
-  "General": 180,
-  "Red Dot": 175,
-  "2x Scope": 165,
-  "4x Scope": 150,
-  "Sniper Scope": 100,
-  "Free Look": 150
-};
+(() => {
+  "use strict";
 
-const sliderContainer = document.getElementById("sliders");
+  const KEY = "ffMaxBoosterRedSettings";
+  const defaults = {
+    gamingMode: true,
+    performanceTips: true,
+    aimPractice: false,
+    headshotGuide: true,
+    floatingEnabled: true,
+    graphicsMode: "Smooth",
+    fpsMode: "High",
+    effects: "Reduced",
+    sensitivity: {
+      general: 180,
+      redDot: 175,
+      scope2x: 165,
+      scope4x: 150,
+      sniper: 100,
+      freeLook: 150
+    }
+  };
 
-Object.entries(defaults).forEach(([name, value], index) => {
-  const id = "sens" + index;
-  const label = document.createElement("label");
-  label.htmlFor = id;
-  label.innerHTML =
-    `${name}: <span class="value" id="${id}Value">${value}</span>`;
+  const sensitivityItems = [
+    ["general", "General"],
+    ["redDot", "Red Dot"],
+    ["scope2x", "2x Scope"],
+    ["scope4x", "4x Scope"],
+    ["sniper", "Sniper Scope"],
+    ["freeLook", "Free Look"]
+  ];
 
-  const slider = document.createElement("input");
-  slider.type = "range";
-  slider.id = id;
-  slider.min = "0";
-  slider.max = "200";
-  slider.value = value;
-  slider.setAttribute("aria-label", name + " sensitivity");
+  const $ = id => document.getElementById(id);
+  const panel = $("panel");
+  const floatBtn = $("floatBtn");
+  const message = $("message");
 
-  slider.addEventListener("input", () => {
-    document.getElementById(id + "Value").textContent = slider.value;
-  });
+  const copy = value => JSON.parse(JSON.stringify(value));
 
-  sliderContainer.appendChild(label);
-  sliderContainer.appendChild(slider);
-});
+  function load() {
+    const result = copy(defaults);
+    try {
+      const saved = JSON.parse(localStorage.getItem(KEY) || "null");
+      if (!saved) return result;
 
-function saveGraphics() {
-  const graphics = document.getElementById("graphics").value;
-  const fps = document.getElementById("fpsMode").value;
-  const effects = document.getElementById("shadows").value;
+      [
+        "gamingMode", "performanceTips", "aimPractice",
+        "headshotGuide", "floatingEnabled"
+      ].forEach(key => {
+        if (typeof saved[key] === "boolean") result[key] = saved[key];
+      });
 
-  document.getElementById("graphicsResult").innerHTML =
-    `<p>Preferences: <strong>${graphics}</strong> graphics,
-    <strong>${fps}</strong> frame rate, effects: <strong>${effects}</strong>.</p>
-    <p class="note">Remember to apply these choices manually inside
-    the game if the corresponding options are available.</p>`;
-}
+      if (["Smooth", "Standard", "High"].includes(saved.graphicsMode))
+        result.graphicsMode = saved.graphicsMode;
 
-function copySettings() {
-  const values = [];
-  Object.keys(defaults).forEach((name, index) => {
-    values.push(name + ": " + document.getElementById("sens" + index).value);
-  });
+      if (["Normal", "High", "Ultra"].includes(saved.fpsMode))
+        result.fpsMode = saved.fpsMode;
 
-  const text = values.join("\n");
-  const toast = document.getElementById("toast");
-  toast.style.display = "block";
-  toast.textContent = text;
+      if (["Reduced", "Default"].includes(saved.effects))
+        result.effects = saved.effects;
 
-  if (navigator.clipboard && window.isSecureContext) {
-    navigator.clipboard.writeText(text).then(() => {
-      toast.textContent = "Copied!\n" + text;
-    }).catch(() => {
-      toast.textContent = text + "\nSelect and copy these values manually.";
-    });
-  } else {
-    toast.textContent = text + "\nSelect and copy these values manually.";
+      if (saved.sensitivity && typeof saved.sensitivity === "object") {
+        sensitivityItems.forEach(([key]) => {
+          const value = Number(saved.sensitivity[key]);
+          if (Number.isFinite(value))
+            result.sensitivity[key] = Math.max(0, Math.min(200, value));
+        });
+      }
+    } catch (e) {}
+    return result;
   }
-}
 
-function togglePanel() {
-  const panel = document.getElementById("quickPanel");
-  panel.style.display = panel.style.display === "block" ? "none" : "block";
-}
+  let settings = load();
 
-function goTo(id) {
-  togglePanel();
-  document.getElementById(id).scrollIntoView({behavior: "smooth"});
-}
+  function notify(text) {
+    message.textContent = text;
+  }
+
+  function save(text = "Settings saved successfully.") {
+    try {
+      localStorage.setItem(KEY, JSON.stringify(settings));
+      notify(text);
+    } catch (e) {
+      notify("Unable to save. Browser storage may be disabled.");
+    }
+  }
+
+  function makeSliders() {
+    const root = $("sliders");
+    root.replaceChildren();
+
+    sensitivityItems.forEach(([key, name]) => {
+      const field = document.createElement("div");
+      field.className = "field";
+
+      const label = document.createElement("label");
+      label.htmlFor = "range-" + key;
+
+      const nameSpan = document.createElement("span");
+      nameSpan.textContent = name;
+
+      const output = document.createElement("output");
+      output.id = "out-" + key;
+
+      label.append(nameSpan, output);
+
+      const range = document.createElement("input");
+      range.type = "range";
+      range.min = "0";
+      range.max = "200";
+      range.step = "1";
+      range.id = "range-" + key;
+      range.setAttribute("aria-label", name);
+
+      range.addEventListener("input", () => {
+        settings.sensitivity[key] = Number(range.value);
+        updateValue(key);
+        save("Sensitivity updated and saved.");
+      });
+
+      field.append(label, range);
+      root.append(field);
+    });
+  }
+
+  function updateValue(key) {
+    const range = $("range-" + key);
+    const output = $("out-" + key);
+    range.value = settings.sensitivity[key];
+    output.value = range.value;
+    output.textContent = range.value;
+  }
+
+  function render() {
+    document.querySelectorAll("[data-setting]").forEach(el => {
+      el.checked = settings[el.dataset.setting];
+    });
+
+    ["graphicsMode", "fpsMode", "effects"].forEach(id => {
+      $(id).value = settings[id];
+    });
+
+    sensitivityItems.forEach(([key]) => updateValue(key));
+
+    floatBtn.style.display = settings.floatingEnabled ? "block" : "none";
+
+    if (!settings.floatingEnabled) closePanel();
+  }
+
+  function collect() {
+    document.querySelectorAll("[data-setting]").forEach(el => {
+      settings[el.dataset.setting] = el.checked;
+    });
+
+    ["graphicsMode", "fpsMode", "effects"].forEach(id => {
+      settings[id] = $(id).value;
+    });
+  }
+
+  function openPanel() {
+    if (!settings.floatingEnabled) return;
+    panel.classList.add("open");
+    floatBtn.setAttribute("aria-expanded", "true");
+  }
+
+  function closePanel() {
+    panel.classList.remove("open");
+    floatBtn.setAttribute("aria-expanded", "false");
+  }
+
+  floatBtn.addEventListener("click", () => {
+    panel.classList.contains("open") ? closePanel() : openPanel();
+  });
+
+  $("closePanel").addEventListener("click", closePanel);
+
+  document.querySelectorAll("[data-setting]").forEach(el => {
+    el.addEventListener("change", () => {
+      collect();
+      save("Preference updated.");
+      render();
+    });
+  });
+
+  ["graphicsMode", "fpsMode", "effects"].forEach(id => {
+    $(id).addEventListener("change", () => {
+      collect();
+      save("Graphics preference saved.");
+    });
+  });
+
+  $("saveBtn").addEventListener("click", () => {
+    collect();
+    save();
+    render();
+  });
+
+  $("quickSave").addEventListener("click", () => {
+    collect();
+    save();
+    render();
+  });
+
+  $("resetSens").addEventListener("click", () => {
+    settings.sensitivity = copy(defaults.sensitivity);
+    sensitivityItems.forEach(([key]) => updateValue(key));
+    save("Sensitivity values reset.");
+  });
+
+  $("resetAll").addEventListener("click", () => {
+    settings = copy(defaults);
+    render();
+    save("All settings restored to defaults.");
+  });
+
+  $("copySens").addEventListener("click", async () => {
+    const text = sensitivityItems.map(([key, name]) =>
+      name + ": " + settings.sensitivity[key]
+    ).join("\n");
+
+    try {
+      if (!navigator.clipboard || !window.isSecureContext)
+        throw new Error("Clipboard unavailable");
+      await navigator.clipboard.writeText(text);
+      notify("Sensitivity values copied.");
+    } catch (e) {
+      notify(text + " — Copy manually if needed.");
+    }
+  });
+
+  document.querySelectorAll("[data-jump]").forEach(button => {
+    button.addEventListener("click", () => {
+      const target = $(button.dataset.jump);
+      closePanel();
+      target.scrollIntoView({ behavior: "smooth" });
+    });
+  });
+
+  document.addEventListener("keydown", event => {
+    if (event.key === "Escape") closePanel();
+  });
+
+  makeSliders();
+  render();
+})();
 </script>
 </body>
 </html>
-
