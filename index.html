@@ -1,1 +1,379 @@
 
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="theme-color" content="#080808">
+<meta name="description" content="FF Max Booster gaming settings, sensitivity guide and FPS optimization for Android.">
+<title>FF MAX BOOSTER</title>
+
+<style>
+:root {
+  --bg: #080808;
+  --card: #151515;
+  --red: #ff3030;
+  --text: #ffffff;
+  --muted: #aaaaaa;
+}
+* { box-sizing: border-box; }
+body {
+  margin: 0;
+  background: var(--bg);
+  color: var(--text);
+  font-family: Arial, sans-serif;
+}
+header {
+  padding: 22px 15px;
+  text-align: center;
+  background: #101010;
+  border-bottom: 2px solid var(--red);
+}
+header h1 {
+  margin: 0;
+  color: var(--red);
+  font-size: 28px;
+  text-shadow: 0 0 12px #ff303055;
+}
+header p { color: var(--muted); margin-bottom: 0; }
+nav {
+  display: flex;
+  justify-content: center;
+  flex-wrap: wrap;
+  gap: 8px;
+  padding: 12px;
+  background: #111;
+  position: sticky;
+  top: 0;
+  z-index: 5;
+}
+button, .navlink {
+  border: 1px solid var(--red);
+  background: #1c1c1c;
+  color: white;
+  border-radius: 9px;
+  padding: 11px 14px;
+  cursor: pointer;
+  font-weight: bold;
+  text-decoration: none;
+}
+button:hover, .navlink:hover {
+  background: var(--red);
+}
+main {
+  width: min(900px, 94%);
+  margin: 20px auto 80px;
+}
+.card {
+  background: var(--card);
+  border: 1px solid #292929;
+  border-radius: 15px;
+  padding: 18px;
+  margin: 16px 0;
+  box-shadow: 0 5px 20px #0008;
+}
+h2 { color: var(--red); margin-top: 0; }
+h3 { margin-bottom: 8px; }
+p, li { line-height: 1.6; }
+label {
+  display: block;
+  margin: 17px 0 8px;
+}
+select, input[type="range"] {
+  width: 100%;
+  accent-color: var(--red);
+}
+select {
+  padding: 12px;
+  background: #080808;
+  color: white;
+  border: 1px solid #444;
+  border-radius: 8px;
+}
+.value {
+  color: var(--red);
+  font-weight: bold;
+}
+.grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(140px, 1fr));
+  gap: 12px;
+}
+.stat {
+  background: #202020;
+  padding: 15px;
+  border-radius: 10px;
+  text-align: center;
+}
+.stat strong {
+  display: block;
+  color: var(--red);
+  font-size: 20px;
+  margin-bottom: 5px;
+}
+.primary {
+  background: var(--red);
+  color: white;
+  border: none;
+  width: 100%;
+  margin-top: 15px;
+}
+.note {
+  color: var(--muted);
+  font-size: 13px;
+}
+#toast {
+  display: none;
+  padding: 12px;
+  margin-top: 12px;
+  background: #202020;
+  border-left: 3px solid var(--red);
+  border-radius: 5px;
+}
+footer {
+  text-align: center;
+  padding: 22px;
+  color: var(--muted);
+  border-top: 1px solid #333;
+}
+#floatButton {
+  position: fixed;
+  right: 16px;
+  bottom: 22px;
+  width: 58px;
+  height: 58px;
+  border-radius: 50%;
+  background: var(--red);
+  border: 2px solid white;
+  font-size: 23px;
+  box-shadow: 0 0 20px #ff303088;
+  z-index: 20;
+}
+#quickPanel {
+  display: none;
+  position: fixed;
+  right: 16px;
+  bottom: 92px;
+  width: min(290px, calc(100% - 32px));
+  background: #171717;
+  border: 1px solid var(--red);
+  border-radius: 14px;
+  padding: 16px;
+  z-index: 19;
+  box-shadow: 0 5px 25px #000c;
+}
+#quickPanel button { width: 100%; margin-top: 8px; }
+.hidden { display: none; }
+</style>
+</head>
+
+<body>
+<header>
+  <h1>🔥 FF MAX BOOSTER</h1>
+  <p>Gaming Settings • Smooth Play • Headshot Guide</p>
+</header>
+
+<nav>
+  <a class="navlink" href="#device">Device</a>
+  <a class="navlink" href="#fps">FPS</a>
+  <a class="navlink" href="#sensitivity">Sensitivity</a>
+  <a class="navlink" href="#tips">Tips</a>
+</nav>
+
+<main>
+  <section class="card" id="device">
+    <h2>📱 Your Gaming Profile</h2>
+    <div class="grid">
+      <div class="stat">
+        <strong>Samsung</strong>
+        Device
+      </div>
+      <div class="stat">
+        <strong>F17 5G</strong>
+        Model
+      </div>
+      <div class="stat">
+        <strong>Android</strong>
+        Platform
+      </div>
+    </div>
+    <p class="note">
+      Recommended settings are starting points. Actual performance
+      depends on your phone variant, game version and temperature.
+    </p>
+  </section>
+
+  <section class="card" id="fps">
+    <h2>⚡ FPS & Graphics Guide</h2>
+
+    <label for="graphics">Graphics</label>
+    <select id="graphics">
+      <option value="Smooth">Smooth — prioritize performance</option>
+      <option value="Standard">Standard</option>
+      <option value="High">High — if stable</option>
+    </select>
+
+    <label for="fpsMode">Frame Rate</label>
+    <select id="fpsMode">
+      <option value="High">High — if available</option>
+      <option value="Normal">Normal</option>
+      <option value="Ultra">Ultra — only if available and stable</option>
+    </select>
+
+    <label for="shadows">Extra visual effects</label>
+    <select id="shadows">
+      <option value="Off">Reduce extra effects</option>
+      <option value="On">Keep game effects</option>
+    </select>
+
+    <button class="primary" onclick="saveGraphics()">
+      Save My Preferences
+    </button>
+    <p class="note">
+      This saves your choices on this webpage only. It does not
+      change Free Fire's internal settings automatically.
+    </p>
+    <div id="graphicsResult"></div>
+  </section>
+
+  <section class="card" id="sensitivity">
+    <h2>🎯 Headshot Sensitivity</h2>
+    <p>Adjust the guide values from 0–200 to suit your own aim.</p>
+
+    <div id="sliders"></div>
+
+    <button class="primary" onclick="copySettings()">
+      Copy Sensitivity Settings
+    </button>
+    <div id="toast"></div>
+  </section>
+
+  <section class="card" id="tips">
+    <h2>🔥 One-Tap & Drag Tips</h2>
+    <ul>
+      <li>Start with the General and Red Dot sensitivity values below.</li>
+      <li>Practice short upward drags in the training ground.</li>
+      <li>Adjust fire button size in the game's own HUD settings.</li>
+      <li>Use the lowest graphics option that keeps gameplay smooth.</li>
+      <li>Close unnecessary background apps before playing.</li>
+      <li>Take a break if the phone gets unusually hot.</li>
+    </ul>
+    <p class="note">
+      No setting guarantees a headshot. This guide does not automate
+      aiming, lock onto opponents or modify the game.
+    </p>
+  </section>
+
+  <section class="card">
+    <h2>🔘 Floating Settings Demo</h2>
+    <p>
+      Tap the red controller icon at the bottom-right of this webpage
+      to open the quick settings panel.
+    </p>
+    <p class="note">
+      This is a webpage overlay, not a system-wide Android overlay.
+      It will not float over Free Fire after you leave the browser.
+    </p>
+  </section>
+</main>
+
+<div id="quickPanel">
+  <h3 style="color:#ff3030">🎮 Quick Panel</h3>
+  <button onclick="goTo('fps')">⚡ FPS & Graphics</button>
+  <button onclick="goTo('sensitivity')">🎯 Sensitivity</button>
+  <button onclick="goTo('tips')">🔥 Headshot Tips</button>
+  <button onclick="togglePanel()">Close Panel</button>
+</div>
+
+<button id="floatButton" aria-label="Open gaming settings"
+ onclick="togglePanel()">🎮</button>
+
+<footer>
+  FF MAX BOOSTER • Community gaming settings guide
+  <p class="note">
+    Unofficial fan-made website. Not affiliated with Garena.
+  </p>
+</footer>
+
+<script>
+const defaults = {
+  "General": 180,
+  "Red Dot": 175,
+  "2x Scope": 165,
+  "4x Scope": 150,
+  "Sniper Scope": 100,
+  "Free Look": 150
+};
+
+const sliderContainer = document.getElementById("sliders");
+
+Object.entries(defaults).forEach(([name, value], index) => {
+  const id = "sens" + index;
+  const label = document.createElement("label");
+  label.htmlFor = id;
+  label.innerHTML =
+    `${name}: <span class="value" id="${id}Value">${value}</span>`;
+
+  const slider = document.createElement("input");
+  slider.type = "range";
+  slider.id = id;
+  slider.min = "0";
+  slider.max = "200";
+  slider.value = value;
+  slider.setAttribute("aria-label", name + " sensitivity");
+
+  slider.addEventListener("input", () => {
+    document.getElementById(id + "Value").textContent = slider.value;
+  });
+
+  sliderContainer.appendChild(label);
+  sliderContainer.appendChild(slider);
+});
+
+function saveGraphics() {
+  const graphics = document.getElementById("graphics").value;
+  const fps = document.getElementById("fpsMode").value;
+  const effects = document.getElementById("shadows").value;
+
+  document.getElementById("graphicsResult").innerHTML =
+    `<p>Preferences: <strong>${graphics}</strong> graphics,
+    <strong>${fps}</strong> frame rate, effects: <strong>${effects}</strong>.</p>
+    <p class="note">Remember to apply these choices manually inside
+    the game if the corresponding options are available.</p>`;
+}
+
+function copySettings() {
+  const values = [];
+  Object.keys(defaults).forEach((name, index) => {
+    values.push(name + ": " + document.getElementById("sens" + index).value);
+  });
+
+  const text = values.join("\n");
+  const toast = document.getElementById("toast");
+  toast.style.display = "block";
+  toast.textContent = text;
+
+  if (navigator.clipboard && window.isSecureContext) {
+    navigator.clipboard.writeText(text).then(() => {
+      toast.textContent = "Copied!\n" + text;
+    }).catch(() => {
+      toast.textContent = text + "\nSelect and copy these values manually.";
+    });
+  } else {
+    toast.textContent = text + "\nSelect and copy these values manually.";
+  }
+}
+
+function togglePanel() {
+  const panel = document.getElementById("quickPanel");
+  panel.style.display = panel.style.display === "block" ? "none" : "block";
+}
+
+function goTo(id) {
+  togglePanel();
+  document.getElementById(id).scrollIntoView({behavior: "smooth"});
+}
+</script>
+</body>
+</html>
+
